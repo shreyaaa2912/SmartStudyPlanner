@@ -142,7 +142,15 @@ if (
 user_id = st.session_state.user.id
 
 try:
+    supabase.auth.set_session(
+        st.session_state.access_token,
+        st.session_state.get("refresh_token")
+    )
     supabase.postgrest.auth(st.session_state.access_token)
+except Exception as e:
+    st.error(f"Login session error: {e}")
+    st.stop()
+    
 except Exception as e:
     st.error(f"Could not authenticate database request: {e}")
     st.stop()
