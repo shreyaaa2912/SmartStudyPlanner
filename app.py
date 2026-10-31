@@ -70,6 +70,7 @@ if st.session_state.user is None:
 
 # Logged-in user
 user_id = st.session_state.user.id
+supabase.postgrest.auth(st.session_state.access_token)
 
 if st.button("Logout"):
     supabase.auth.sign_out()
