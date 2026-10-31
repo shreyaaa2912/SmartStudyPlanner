@@ -322,29 +322,7 @@ if "tasks" not in st.session_state:
         st.stop()
 
 
-with st.form("study_task_entry_form"):
-    subject = st.text_input("Subject name")
-    task = st.text_input("What do you need to study?")
-    deadline = st.date_input("Deadline", min_value=date.today())
-    priority = st.selectbox("Priority", ["High", "Medium", "Low"])
-    submitted = st.form_submit_button("Add Task")
-
-if submitted:
-    if subject.strip() and task.strip():
-        try:
-            supabase.table("study_tasks").insert({
-                "user_id": user_id,
-                "title": subject.strip(),
-                "description": task.strip(),
-                "due_date": str(deadline),
-                "priority": priority,
-                "completed": False
-            }).execute()
-
-            st.session_state.tasks = load_tasks()
-            st.success("Task added successfully!")
-            st.rerun()
-
+      
         except Exception as e:
             st.error(f"Could not save task: {e}")
     else:
