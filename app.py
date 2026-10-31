@@ -321,7 +321,6 @@ if "tasks" not in st.session_state:
         st.error(f"Could not load tasks: {e}")
         st.stop()
 
-st.subheader("➕ Add a Study Task")
 
 with st.form("study_task_entry_form"):
     subject = st.text_input("Subject name")
