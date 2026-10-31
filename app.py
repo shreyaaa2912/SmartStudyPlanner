@@ -29,6 +29,8 @@ st.caption("Plan smarter. Study better!")
 # Login session
 if "user" not in st.session_state:
     st.session_state.user = None
+    st.session_state.access_token = None
+    st.session_state.refresh_token = None
 
 if st.session_state.user is None:
     st.subheader("Login / Sign Up")
@@ -46,6 +48,8 @@ if st.session_state.user is None:
                     "password": password
                 })
                 st.session_state.user = response.user
+                st.session_state.access_token = response.session.access_token
+                st.session_state.refresh_token = response.session.refresh_token
                 st.rerun()
             except Exception as e:
                 st.error(f"Login failed: {e}")
