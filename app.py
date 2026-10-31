@@ -140,6 +140,7 @@ if (
 # -------------------- AUTHENTICATE DATABASE REQUESTS --------------------
 
 user_id = st.session_state.user.id
+st.write(Logged-in user ID:", user_id)
 
 try:
     supabase.auth.set_session(
