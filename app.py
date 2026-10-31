@@ -321,9 +321,6 @@ if "tasks" not in st.session_state:
         st.error(f"Could not load tasks: {e}")
         st.stop()
 
-
-      
-     )
     else:
         st.warning("Please enter both subject and task.")
 
