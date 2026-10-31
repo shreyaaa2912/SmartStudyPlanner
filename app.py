@@ -323,8 +323,7 @@ if "tasks" not in st.session_state:
 
 
       
-        except Exception as e:
-            st.error(f"Could not save task: {e}")
+     )
     else:
         st.warning("Please enter both subject and task.")
 
