@@ -318,7 +318,7 @@ if "tasks" not in st.session_state:
 
 st.subheader("➕ Add a Study Task")
 
-with st.form("task_form"):
+with st.form("task_form",clear_on_submit=True):
     subject = st.text_input("Subject name")
     task = st.text_input("What do you need to study?")
     deadline = st.date_input("Deadline", min_value=date.today())
