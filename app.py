@@ -280,7 +280,7 @@ if st.session_state.user is None:
 # Logged-in user
 user_id = st.session_state.user.id
 
-if st.button("Logout"):
+if st.button("Logout", key="logout_button"):
     supabase.auth.sign_out()
     st.session_state.user = None
     st.session_state.pop("tasks", None)
