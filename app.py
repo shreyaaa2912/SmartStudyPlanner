@@ -106,3 +106,4 @@ if tasks:
     )
 else:
     st.info("No tasks yet. Add your first study task above!")
+    
